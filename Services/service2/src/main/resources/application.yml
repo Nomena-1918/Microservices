@@ -1,0 +1,15 @@
+server:
+  port: 8001  # Set the service's running port to 8000
+
+spring:
+  application:
+    name: service2
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    ip-address: ${spring.cloud.client.ip-address}  # Dynamically resolve IP
+    non-secure-port: 8001  # Specify the non-secure port explicitly
